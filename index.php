@@ -24,10 +24,10 @@ require 'logic.php';
         <input type='number' name='splitNum'  min='1' required>
     </label>
     <label>How much was the tab?
-        <input type='number' name='tabTotal' min='0' required>
+        <input type='number' name='tabTotal' min='0' step='.01' required>
     </label>
     <label>How was the service?
-        <select name = 'service'>
+        <select name = 'serviceLevel'>
             <option value='0'>Horrendous (0% tip)</option>
             <option value='.10'>Bad (10% tip)</option>
             <option value='.15' selected>Okay (15% tip)</option>
