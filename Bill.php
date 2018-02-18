@@ -30,7 +30,7 @@ class Bill
 
     private function calculateTotalPerPersonNoRoundup()
     {
-        return (round((($this->tabTotal + ($this->tabTotal * $this->serviceLevel)) / $this->splitNum), 2));
+        return (number_format(round((($this->tabTotal + ($this->tabTotal * $this->serviceLevel)) / $this->splitNum), 2), 2, '.', ''));
     }
 
     private function calculateTotalPerPersonRoundup()

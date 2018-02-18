@@ -1,15 +1,29 @@
 <?php
 
+require('helpers.php');
 require('Bill.php');
+require('Form.php');
 
 use P2\Bill;
+use P2\Form;
 
-$hasSubmitted = false;
 $roundUp = $_POST['roundUp'] ?? '';
+$form = new Form($_POST);
+$showResults = false;
 
-if (isset($_POST['splitNum']) & isset($_POST['tabTotal'])) {
-    $hasSubmitted = true;
-    $bill = new Bill($_POST['tabTotal'], $_POST['splitNum'], $_POST['serviceLevel'], $roundUp);
-    $total = $bill->calculateTotalPerPerson();
-}
+if ($form->isSubmitted()) {
+    $errors = $form->validate(
+        [
+            'tabTotal' => 'required',
+            'splitNum' => 'required',
+            'serviceLevel' => 'required',
+        ]
+    );
+
+    if(!$form->hasErrors) {
+        $bill = new Bill($_POST['tabTotal'], $_POST['splitNum'], $_POST['serviceLevel'], $roundUp);
+        $total = $bill->calculateTotalPerPerson();
+        $showResults = true;
+    };
+};
 
