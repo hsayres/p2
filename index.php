@@ -24,7 +24,7 @@ require 'logic.php';
 <form method='POST' id='billForm'>
     <label class='label'>How much was the tab?
         <span>$</span>
-        <input type='number' name='tabTotal' id='tabTotal' min='0' step='.01' value='<?= $tabTotal?>'>
+        <input type='number' name='tabTotal' id='tabTotal' min='0' step='.01' value='<?= $form->prefill('tabTotal') ?>'>
         <span class='required'> *required </span>
 
     </label>
@@ -49,10 +49,11 @@ require 'logic.php';
     </label>
 
     <label class='label'>
-        <input type='submit' value='Calculate'>
+        <input type='submit' class='btn-primary inputButton' value='Calculate'>
     </label>
-
-
+    <label class='label'>
+        <input type='button' class='btn-danger inputButton' value='Clear input' onClick='window.location.href=window.location.href'>
+    </label>
 </form>
 
 

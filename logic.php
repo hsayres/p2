@@ -12,9 +12,9 @@ $splitNum = $_POST['splitNum'] ?? '';
 $serviceLevel = $_POST['serviceLevel'] ?? '';
 $roundUp = $_POST['roundUp'] ?? '';
 $form = new Form($_POST);
+
 $showResults = false;
 $bill = new Bill($tabTotal, $splitNum, $serviceLevel, $roundUp);
-
 
 if ($form->isSubmitted()) {
     $errors = $form->validate(
@@ -25,7 +25,7 @@ if ($form->isSubmitted()) {
         ]
     );
 
-    if(!$form->hasErrors) {
+    if (!$form->hasErrors) {
         $total = $bill->calculateTotalPerPerson();
         $showResults = true;
     };

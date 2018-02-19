@@ -2,14 +2,12 @@ body {
     padding: 20px;
 }
 
-
 .label {
     padding: 10px;
     color: black;
     margin: 3px;
     display: block;
 }
-
 
 .bg-success {
     padding: 10px;
@@ -19,6 +17,10 @@ h1 {
     text-align: center;
 }
 
-.required{
+.required {
     color: red;
+}
+
+.inputButton {
+    padding: 5px;
 }

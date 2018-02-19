@@ -18,26 +18,12 @@ class Bill
         $this->roundUp = $roundUp;
     }
 
-    /**
-     * @return float|int
-     */
-    public function resetBill ()
-    {
-    $this->tabTotal = '';
-    $this->splitNum = '';
-    $this->serviceLevel = '';
-    $this->roundUp = '0';
-    return;
-
-    }
-
     public function calculateTotalPerPerson()
     {
         $total = $this->roundUp ? $this->calculateTotalPerPersonRoundup() : $this->calculateTotalPerPersonNoRoundup();
 
         return $total;
     }
-
 
     private function calculateTotalPerPersonNoRoundup()
     {
