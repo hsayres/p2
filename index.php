@@ -34,13 +34,10 @@ require 'logic.php';
     </label>
     <label class='label'>How was the service?
         <select name='serviceLevel' id='serviceLevel'>
-            <option value=''>Select an option</option>
-            <option value='0' <?php echo (isset($_POST['serviceLevel']) && $_POST['serviceLevel'] == '0') ? 'selected="selected"' : ''; ?>>Horrendous (0% tip)</option>
-            <option value='.10' <?php echo (isset($_POST['serviceLevel']) && $_POST['serviceLevel'] == '.10') ? 'selected="selected"' : ''; ?>>Bad (10% tip)</option>
-            <option value='.15' <?php echo (isset($_POST['serviceLevel']) && $_POST['serviceLevel'] == '.15') ? 'selected="selected"' : ''; ?>>Okay (15% tip)</option>
-            <option value='.18' <?php echo (isset($_POST['serviceLevel']) && $_POST['serviceLevel'] == '.18') ? 'selected="selected"' : ''; ?>>Good (18% tip)</option>
-            <option value='.20' <?php echo (isset($_POST['serviceLevel']) && $_POST['serviceLevel'] == '.20') ? 'selected="selected"' : ''; ?>>Great (20% tip)</option>
-            <option value='.25' <?php echo (isset($_POST['serviceLevel']) && $_POST['serviceLevel'] == '.25') ? 'selected="selected"' : ''; ?>>Spectacular (25% tip)</option>
+            <option value='' <?php echo (isset($_POST['serviceLevel']) && (!$_POST['serviceLevel'])) ? 'selected="selected"' : ''; ?>>Select an option</option>
+            <?php foreach ($possibleServiceLevels as $serviceLevel => $serviceDescription): ?>
+            <option value='<?php echo($serviceLevel) ?>' <?php echo (isset($_POST['serviceLevel']) && $_POST['serviceLevel'] == $serviceLevel) ? 'selected="selected"' : ''; ?>> <?php echo $serviceDescription ?> </option>
+            <?php endforeach ?>
         </select>
         <span class='required'> *required </span>
     </label>

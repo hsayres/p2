@@ -15,12 +15,13 @@ $form = new Form($_POST);
 
 $showResults = false;
 $bill = new Bill($tabTotal, $splitNum, $serviceLevel, $roundUp);
+$possibleServiceLevels = $bill->getPossibleServiceLevels();
 
 if ($form->isSubmitted()) {
     $errors = $form->validate(
         [
             'tabTotal' => 'required',
-            'splitNum' => 'required',
+            'splitNum' => 'required|numeric',
             'serviceLevel' => 'required',
         ]
     );

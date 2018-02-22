@@ -105,7 +105,7 @@ class Form
      * Will loop through each field's rules
      * Returns an array of error messages
      * Stops after the first error for a given field
-     * Available rules: alphaNumeric, alpha, numeric, required, email, min:x, max:x
+     * Available rules: alphaNumeric, alpha, numeric, floatNumeric, required, email, min:x, max:x
      * @param $fieldsToValidate
      * @return array
      */
